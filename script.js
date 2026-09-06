@@ -15,6 +15,7 @@ const tokenError = document.getElementById("tokenError");
 
 verifyButton.addEventListener("click", () => {
 
+
 const enteredCode = secretCode.value.trim();
 
 if (enteredCode === SECRET_CODE) {
@@ -32,17 +33,21 @@ if (enteredCode === SECRET_CODE) {
 
 }
 
+
 });
 
 secretCode.addEventListener("keydown", (event) => {
+
 
 if (event.key === "Enter") {
     verifyButton.click();
 }
 
+
 });
 
 connectButton.addEventListener("click", async () => {
+
 
 const token = botToken.value.trim();
 
@@ -64,12 +69,15 @@ tokenError.textContent = "";
 tokenCard.classList.add("hidden");
 dashboardCard.classList.remove("hidden");
 
+
 });
 
 botToken.addEventListener("keydown", (event) => {
 
+
 if (event.key === "Enter") {
     connectButton.click();
 }
+
 
 });
