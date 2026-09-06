@@ -1,69 +1,88 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Ronaldo Bot</title>
-
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <div class="container">
+```
+<div class="container">
 
-        <div class="card">
+    <!-- SECRET VERIFICATION -->
+    <div class="card" id="verificationCard">
 
-            <div class="logo">⚽</div>
+        <div class="logo">⚽</div>
 
-            <h1>Ronaldo Bot</h1>
+        <h1>Ronaldo Bot</h1>
+        <p class="subtitle">Private bot control panel</p>
 
-            <p class="subtitle">
-                Control your Discord bot
-            </p>
+        <input
+            type="password"
+            id="secretCode"
+            placeholder="Enter secret code"
+            autocomplete="off"
+        >
 
-            <div class="status">
-                <span class="dot"></span>
-                <span id="statusText">Bot Offline</span>
-            </div>
+        <button id="verifyButton">
+            Verify
+        </button>
 
-            <div class="controls">
-
-                <button id="startBot">
-                    Start Bot
-                </button>
-
-                <button id="stopBot">
-                    Stop Bot
-                </button>
-
-            </div>
-
-            <div class="info">
-
-                <div>
-                    <span>Server</span>
-                    <strong id="serverCount">0</strong>
-                </div>
-
-                <div>
-                    <span>Users</span>
-                    <strong id="userCount">0</strong>
-                </div>
-
-                <div>
-                    <span>Ping</span>
-                    <strong id="ping">-- ms</strong>
-                </div>
-
-            </div>
-
-        </div>
+        <p class="error" id="verifyError"></p>
 
     </div>
 
-    <script src="script.js"></script>
+
+    <!-- BOT TOKEN -->
+    <div class="card hidden" id="tokenCard">
+
+        <div class="logo">🤖</div>
+
+        <h1>Connect Bot</h1>
+        <p class="subtitle">Enter your Ronaldo Bot token</p>
+
+        <input
+            type="password"
+            id="botToken"
+            placeholder="Bot token"
+            autocomplete="off"
+        >
+
+        <button id="connectButton">
+            Connect
+        </button>
+
+        <p class="error" id="tokenError"></p>
+
+    </div>
+
+
+    <!-- DASHBOARD -->
+    <div class="card hidden" id="dashboardCard">
+
+        <div class="logo">⚽</div>
+
+        <h1>Ronaldo Bot</h1>
+
+        <div class="status">
+            <span class="dot"></span>
+            <span id="statusText">Connected</span>
+        </div>
+
+        <p class="connected">
+            Your bot is ready.
+        </p>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+```
 
 </body>
 </html>
