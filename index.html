@@ -1,1 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Ronaldo Bot</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="card">
+
+            <div class="logo">⚽</div>
+
+            <h1>Ronaldo Bot</h1>
+
+            <p class="subtitle">
+                Control your Discord bot
+            </p>
+
+            <div class="status">
+                <span class="dot"></span>
+                <span id="statusText">Bot Offline</span>
+            </div>
+
+            <div class="controls">
+
+                <button id="startBot">
+                    Start Bot
+                </button>
+
+                <button id="stopBot">
+                    Stop Bot
+                </button>
+
+            </div>
+
+            <div class="info">
+
+                <div>
+                    <span>Server</span>
+                    <strong id="serverCount">0</strong>
+                </div>
+
+                <div>
+                    <span>Users</span>
+                    <strong id="userCount">0</strong>
+                </div>
+
+                <div>
+                    <span>Ping</span>
+                    <strong id="ping">-- ms</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
