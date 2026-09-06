@@ -1,73 +1,75 @@
+const SECRET_CODE = "RONALDO-7X9Q-2026";
 
-const startBot = document.getElementById("startBot");
-const stopBot = document.getElementById("stopBot");
+const verificationCard = document.getElementById("verificationCard");
+const tokenCard = document.getElementById("tokenCard");
+const dashboardCard = document.getElementById("dashboardCard");
 
-const statusText = document.getElementById("statusText");
-const dot = document.querySelector(".dot");
+const secretCode = document.getElementById("secretCode");
+const botToken = document.getElementById("botToken");
 
-const serverCount = document.getElementById("serverCount");
-const userCount = document.getElementById("userCount");
-const ping = document.getElementById("ping");
+const verifyButton = document.getElementById("verifyButton");
+const connectButton = document.getElementById("connectButton");
 
+const verifyError = document.getElementById("verifyError");
+const tokenError = document.getElementById("tokenError");
 
-function setStatus(online) {
+verifyButton.addEventListener("click", () => {
 
-    if (online) {
-        statusText.textContent = "Bot Online";
-        dot.style.background = "#2ecc71";
-    } else {
-        statusText.textContent = "Bot Offline";
-        dot.style.background = "#e74c3c";
-    }
+const enteredCode = secretCode.value.trim();
+
+if (enteredCode === SECRET_CODE) {
+
+    verifyError.textContent = "";
+
+    verificationCard.classList.add("hidden");
+    tokenCard.classList.remove("hidden");
+
+    botToken.focus();
+
+} else {
+
+    verifyError.textContent = "Incorrect secret code.";
 
 }
 
+});
 
-startBot.addEventListener("click", async () => {
+secretCode.addEventListener("keydown", (event) => {
 
-    try {
-
-        const response = await fetch("/api/bot/start", {
-            method: "POST"
-        });
-
-        const data = await response.json();
-
-        if (data.success) {
-            setStatus(true);
-        }
-
-    } catch (error) {
-
-        console.error(error);
-
-        alert("Backend is not connected yet.");
-
-    }
+if (event.key === "Enter") {
+    verifyButton.click();
+}
 
 });
 
+connectButton.addEventListener("click", async () => {
 
-stopBot.addEventListener("click", async () => {
+const token = botToken.value.trim();
 
-    try {
+if (!token) {
+    tokenError.textContent = "Enter your bot token.";
+    return;
+}
 
-        const response = await fetch("/api/bot/stop", {
-            method: "POST"
-        });
+tokenError.textContent = "";
 
-        const data = await response.json();
+/*
+    The real bot connection will be added later.
 
-        if (data.success) {
-            setStatus(false);
-        }
+    IMPORTANT:
+    The token is NOT stored in the HTML,
+    CSS, or JavaScript.
+*/
 
-    } catch (error) {
+tokenCard.classList.add("hidden");
+dashboardCard.classList.remove("hidden");
 
-        console.error(error);
+});
 
-        alert("Backend is not connected yet.");
+botToken.addEventListener("keydown", (event) => {
 
-    }
+if (event.key === "Enter") {
+    connectButton.click();
+}
 
 });
